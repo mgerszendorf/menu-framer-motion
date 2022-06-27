@@ -1,0 +1,129 @@
+.navigation-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+
+  .menu-button {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+
+    .menu-button__cheeckbox {
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: relative;
+      cursor: pointer;
+      z-index: 2;
+      -webkit-touch-callout: none;
+      position: absolute;
+      opacity: 0;
+    }
+
+    div {
+      margin: auto;
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      width: 22px;
+      height: 12px;
+    }
+
+    span {
+      position: absolute;
+      display: block;
+      width: 100%;
+      height: 2px;
+      background-color: #111c26;
+      border-radius: 1px;
+      transition: all 0.2s cubic-bezier(0.1, 0.82, 0.76, 0.965);
+
+      &:first-of-type {
+        top: 0;
+      }
+
+      &:last-of-type {
+        bottom: 0;
+      }
+    }
+
+    &.active,
+    .menu-button__cheeckbox:checked + div {
+      span {
+        &:first-of-type {
+          transform: rotate(45deg);
+          top: 5px;
+        }
+
+        &:last-of-type {
+          transform: rotate(-45deg);
+          bottom: 5px;
+        }
+      }
+    }
+  }
+
+  .menu-items {
+    display: none;
+  }
+
+  .navigation-bar-right-area {
+    display: none;
+  }
+}
+
+@media all and (min-width: 1024px) {
+  .navigation-bar {
+    .menu-button {
+      display: none;
+    }
+
+    .menu-items {
+      display: flex;
+      align-items: center;
+
+      li {
+        a {
+          font-size: 1.6rem;
+          font-weight: 500;
+          color: #000;
+          padding: 2rem 4rem;
+        }
+      }
+    }
+
+    .navigation-bar-right-area {
+      display: flex;
+      align-items: center;
+
+      .change-language {
+        span,
+        a {
+          color: #000;
+          font-size: 1.6rem;
+          font-weight: 500;
+          letter-spacing: 1px;
+        }
+
+        .active-language,
+        span:nth-of-type(2) {
+          color: #7b97a1;
+        }
+      }
+
+      .resume-button {
+        background-color: #111c26;
+        color: #f2f2f2;
+        font-size: 1.6rem;
+        padding: 0.5rem 2rem;
+        border-radius: 12px;
+        font-weight: 500;
+        margin-left: 2rem;
+      }
+    }
+  }
+}
